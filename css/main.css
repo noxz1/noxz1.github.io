@@ -1,0 +1,245 @@
+body {
+	font-family: arial, sans-serif;
+	padding: 0;
+	margin: 0;
+	/*  */
+}
+
+div {
+	box-sizing: border-box;
+}
+
+hr {
+	border: none;
+	background-color: black;
+	color: black;
+	height: 2px;
+	width: 900px;
+}
+
+header hr {
+	margin: 0px;
+}
+
+header {
+	background-color: white;
+	width: 900px;
+	margin: 0 auto;
+	position: fixed;  
+	top: 0;
+    left:50%; 
+    margin-left:-450px;
+	z-index: 100;  
+	/* background: url(../img/bg.png) no-repeat center top; */
+} 
+
+.container {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.logo {
+	height: 70px; /* исправить логотип */
+	float: left;
+	margin-top:3px;
+}
+
+nav {
+	float: right;
+	margin-top: 50px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.menu {
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+.menu li {
+	float: left;
+	display: block;
+	margin-right: 40px;
+}
+
+.menu a {
+	color: gray;
+	text-decoration: none;
+	/* text-transform: uppercase; */
+	font-size: 16px;
+}
+
+.title_first {
+	font-size: 20px;
+	color:black;
+	text-align: center;
+	margin: 10px;
+	margin-top: 100px;
+}
+.title_second {
+	font-size: 14px;
+	color: gray;
+	text-align: center;
+	margin: 5px;
+}
+
+.main_image	{
+	height: 500px;
+	width: 900px;
+	background-color:red;
+	margin: 0 auto;
+}
+
+.q1 {
+	height: 300px;
+	width: 211px;
+	background: white;
+	display: inline-table;
+	padding: 10px;
+	margin: 2px 5px;
+}
+
+.q1 img {
+	height: 50px;
+	left: 60px;
+	position: relative;
+}
+
+#projects {
+	margin-bottom: 15px;
+}
+
+.p1 {
+	height: 200px;
+	width: 295px;
+	background: #232323;
+	display: inline-table;
+	padding: 5px;
+	margin: 2px 0px;
+	border-radius: 10px;
+}
+
+.p1 img {
+	position: relative;
+	width:285px;
+	height:200px;
+	left:0px;
+	border-radius: 5px 5px 0 0;
+}
+.p1 a {
+	font-weight: bold;
+	color: #e8e8e8;
+	text-decoration: none;
+	font-size: 16px;
+	margin-left: 180px;
+}
+
+.p1 p {
+	padding: 0;
+	margin:0;
+	color: #e8e8e8;
+}
+
+a:hover {
+	color:black;
+}
+
+footer {
+	width: 900px;
+	margin: 0 auto;
+} 
+
+footer hr {
+	margin: 10px 0px 0px 0px;
+}
+
+.contact p {
+	font-weight: bold;
+	text-align: right;
+}
+
+.line {  
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+ text-align: center;
+ margin: 0 auto;
+ font-weight: bold;
+ color: gray;
+}
+.line:before,
+.line:after {
+ content: '';
+ display: inline-block;
+ width: 100%;
+ height: 2px;
+ background: #000;
+ z-index: -1;
+ position: relative;
+ vertical-align: middle;
+}
+.line:before {
+ right: 15px;
+ margin: 0 0 0 -100%;
+}
+.line:after {
+ left: 15px;
+ margin: 0 -100% 0 0;
+}
+
+
+#slider-wrap{ /* Оболочка слайдера и кнопок */
+	width:900px;
+	margin: 0 auto; 
+	}
+#slider{ /* Оболочка слайдера */
+	width:900px;
+	height:360px;
+	overflow: hidden;
+	border:#eee solid 0px;
+	position:relative;}
+.slide{ /* Слайд */
+	width:100%;
+	height:100%;
+	}
+.sli-links{ /* Кнопки смены слайдов */
+	margin-top:10px;
+	text-align:center;}
+.sli-links .control-slide{
+	margin:2px;
+	display:inline-block;
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	text-indent:-9999px;
+	background:url(radioBg.png) center bottom no-repeat;}
+.sli-links .control-slide:hover{
+	cursor:pointer;
+	background-position:center center;}
+.sli-links .control-slide.active{
+	background-position:center top;}
+#prewbutton, #nextbutton{ /* Ссылка "Следующий" и "Педыдущий" */
+	display:block;
+	width:15px;
+	height:100%;
+	position:absolute;
+	top:0;
+	overflow:hidden;
+	text-indent:-999px;
+	background:url(arrowBg.png) left center no-repeat;
+	opacity:0.8;
+	z-index:3;
+	outline:none !important;}
+#prewbutton{left:10px;}
+#nextbutton{
+	right:10px;
+	background:url(arrowBg.png) right center no-repeat;}
+#prewbutton:hover, #nextbutton:hover{
+	opacity:1;}
+
+
+.abouttext {
+	margin-left: 15px;
+
+}

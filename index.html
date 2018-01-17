@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Artas</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+/*
+
+HW Slider - простой слайдер на jQuery. 
+
+Настройки скрипта:
+
+hwSlideSpeed - Скорость анимации перехода слайда.
+hwTimeOut - время до автоматического перелистывания слайдов.
+hwNeedLinks - включает или отключает показ ссылок "следующий - предыдущий". Значения true или false
+
+Подробнее на http://heavenweb.ru/
+
+*/
+(function ($) {
+var hwSlideSpeed = 700;
+var hwTimeOut = 2000;
+var hwNeedLinks = true;
+
+$(document).ready(function(e) {
+	$('.slide').css(
+		{"position" : "absolute",
+		 "top":'0', "left": '0'}).hide().eq(0).show();
+	var slideNum = 0;
+	var slideTime;
+	slideCount = $("#slider .slide").size();
+	var animSlide = function(arrow){
+		clearTimeout(slideTime);
+		$('.slide').eq(slideNum).fadeOut(hwSlideSpeed);
+		if(arrow == "next"){
+			if(slideNum == (slideCount-1)){slideNum=0;}
+			else{slideNum++}
+			}
+		else if(arrow == "prew")
+		{
+			if(slideNum == 0){slideNum=slideCount-1;}
+			else{slideNum-=1}
+		}
+		else{
+			slideNum = arrow;
+			}
+		$('.slide').eq(slideNum).fadeIn(hwSlideSpeed, rotator);
+		$(".control-slide.active").removeClass("active");
+		$('.control-slide').eq(slideNum).addClass('active');
+		}
+if(hwNeedLinks){
+var $linkArrow = $('<a id="prewbutton" href="#">&lt;</a><a id="nextbutton" href="#">&gt;</a>')
+	.prependTo('#slider');		
+	$('#nextbutton').click(function(){
+		animSlide("next");
+		return false;
+		})
+	$('#prewbutton').click(function(){
+		animSlide("prew");
+		return false;
+		})
+}
+	var $adderSpan = '';
+	$('.slide').each(function(index) {
+			$adderSpan += '<span class = "control-slide">' + index + '</span>';
+		});
+	$('<div class ="sli-links">' + $adderSpan +'</div>').appendTo('#slider-wrap');
+	$(".control-slide:first").addClass("active");
+	$('.control-slide').click(function(){
+	var goToNum = parseFloat($(this).text());
+	animSlide(goToNum);
+	});
+	var pause = false;
+	var rotator = function(){
+			if(!pause){slideTime = setTimeout(function(){animSlide('next')}, hwTimeOut);}
+			}
+	$('#slider-wrap').hover(	
+		function(){clearTimeout(slideTime); pause = true;},
+		function(){pause = false; rotator();
+		});
+	rotator();
+
+
+	$(".projects").click(function() {
+		  $("html, body").animate({ "scrollTop":$('#projects').offset().top-90}, "slow");
+		return false;
+		});
+	$(".about").click(function() {
+		  $("html, body").animate({ "scrollTop":$('#about').offset().top-90}, "slow");
+		return false;
+		});
+});
+})(jQuery);
+
+
+</script>	
+
+
+	<header>
+		<div class="container"> 
+			<img src="img/logo2.png" alt="ARTAS" class="logo">
+			<nav> 
+				<ul class="menu">
+					<li>
+						<a href="#">Главная</a>
+					</li>
+					<li>
+						<a href="" class="about">О нас</a>
+					</li>
+					<li>
+						<a href="" class="projects">Проекты</a>
+					</li>
+					<li>
+						<a href="#">Контакты</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<hr>
+	</header>
+
+
+
+
+	<div class="titles">
+		<h1 class="title_first">
+			Проектирование жилых, общественных и <br> 
+промышленных зданий и сооружений
+		</h1>
+		<h1 class="title_second">
+			Польза. Прочность. Красота.
+		</h1>
+	</div>
+		
+	<div id="slider-wrap">
+		<div id="slider">
+			<div class="slide"><img src="img/001.jpg" width="900" height="360"></div>
+			<div class="slide"><img src="img/002.jpg" width="900" height="360"></div>
+			<div class="slide"><img src="img/003.jpg" width="900" height="360"></div>
+			<div class="slide"><img src="img/004.jpg" width="900" height="360"></div>
+		</div>
+	</div>
+
+
+
+	<div class="container">
+		<p class="line">Наши качества</p>
+		<div class="q1">
+			<img src="img/pic1.png">
+			<p>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem 
+  				nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
+  				nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
+			</p>
+		</div>
+		<div class="q1">
+			<img src="img/pic2.png">
+			<p>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem 
+  				nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
+			</p>
+		</div>
+		<div class="q1">
+			<img src="img/pic3.png">
+			<p>
+				Теперь у нас есть Пакет управления в Саблайме и можно переходить к установки Эммета. Тут тоже делов на минуту. Как вы уже наверное поняли, нужно нажать на «Preferences» (Глобальные параметры) или Ctrl + Shift + P и в самом
+			</p>
+		</div>
+		<div class="q1">
+			<img src="img/pic4.png">
+			<p>
+				После этого всплывет еще одно окно где нужно ввести слово «Emmet», появится много предложений и словосочетаний, нажать нужно на самую первую надпись.
+			</p>
+		</div>
+	</div>	
+	
+	<div class="container">
+		<p class="line" id="about">О нас</p>
+
+				<div class="abouttext">
+					<p> После этого всплывет еще одно окно где нужно ввести слово «Emmet», </br> появится много предложений и словосочетаний, нажать нужно на самую первую надпись.
+					</p>
+			</div>
+
+	</div>
+
+
+
+	<div class="container">
+		<p class="line" id="projects">Последние проекты</p>
+		<div class="p1">
+			<img src="pdf/1.jpg">
+			<p> Трёхэтажный жилой дом в г.Симферополь </p>
+			<a href="pdf/1.pdf" target="_blank">Посмотреть</a>
+		</div>
+		<div class="p1">
+			<img src="pdf/2.jpg">
+			<p> Многоэтажный жилой дом в г.Саки </p>
+			<a href="pdf/2.pdf" target="_blank">Посмотреть</a>
+		</div>
+		<div class="p1">
+			<img src="pdf/1.jpg">
+			<a href="#">
+				Посмотреть
+			</a>
+		</div>
+		<div class="p1">
+			<img src="pdf/2.jpg">
+			<a href="#">
+				Посмотреть
+			</a>
+		</div>
+		<div class="p1">
+			<img src="pdf/1.jpg">
+			<a href="#">
+				Посмотреть
+			</a>
+		</div>
+	
+	</div>
+	
+	<footer>
+		<hr>
+			<img src="img/logo2.png" alt="ARTAS" class="logo">
+			<div class="contact">
+				<p>тел. +7(978)7874226</p>
+				<p>e-mail: noxz1@yandex.ru</p>
+			</div>
+	</footer>
+
+</body>
+</html>
